@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.danhuang.mapper.StatusMapper">
+	<resultMap id="BaseResultMap" type="com.danhuang.crop.Status">
+		<id column="name" property="name" jdbcType="VARCHAR" />
+		<result column="temperature" property="temperature" jdbcType="TINYINT" />
+		<result column="moisture" property="moisture" jdbcType="DOUBLE" />
+		<result column="production" property="production" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Example_Where_Clause">
+		<where>
+			<foreach collection="oredCriteria" item="criteria" separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" suffix=")" prefixOverrides="and">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem"
+										open="(" close=")" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Update_By_Example_Where_Clause">
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria"
+				separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" suffix=")" prefixOverrides="and">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem"
+										open="(" close=")" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Base_Column_List">
+		name, temperature, moisture, production
+	</sql>
+	<select id="selectByExample" resultMap="BaseResultMap"
+		parameterType="com.danhuang.crop.StatusExample">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		<include refid="Base_Column_List" />
+		from status
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from status
+		where name = #{name,jdbcType=VARCHAR}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from status
+		where name = #{name,jdbcType=VARCHAR}
+	</delete>
+	<delete id="deleteByExample" parameterType="com.danhuang.crop.StatusExample">
+		delete from status
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</delete>
+	<insert id="insert" parameterType="com.danhuang.crop.Status">
+		insert into status (name, temperature, moisture,
+		production)
+		values (#{name,jdbcType=VARCHAR}, #{temperature,jdbcType=TINYINT},
+		#{moisture,jdbcType=DOUBLE},
+		#{production,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.danhuang.crop.Status">
+		insert into status
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="name != null">
+				name,
+			</if>
+			<if test="temperature != null">
+				temperature,
+			</if>
+			<if test="moisture != null">
+				moisture,
+			</if>
+			<if test="production != null">
+				production,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="temperature != null">
+				#{temperature,jdbcType=TINYINT},
+			</if>
+			<if test="moisture != null">
+				#{moisture,jdbcType=DOUBLE},
+			</if>
+			<if test="production != null">
+				#{production,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<select id="countByExample" parameterType="com.danhuang.crop.StatusExample"
+		resultType="java.lang.Integer">
+		select count(*) from status
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</select>
+	<update id="updateByExampleSelective" parameterType="map">
+		update status
+		<set>
+			<if test="record.name != null">
+				name = #{record.name,jdbcType=VARCHAR},
+			</if>
+			<if test="record.temperature != null">
+				temperature = #{record.temperature,jdbcType=TINYINT},
+			</if>
+			<if test="record.moisture != null">
+				moisture = #{record.moisture,jdbcType=DOUBLE},
+			</if>
+			<if test="record.production != null">
+				production = #{record.production,jdbcType=VARCHAR},
+			</if>
+		</set>
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExample" parameterType="map">
+		update status
+		set name = #{record.name,jdbcType=VARCHAR},
+		temperature = #{record.temperature,jdbcType=TINYINT},
+		moisture = #{record.moisture,jdbcType=DOUBLE},
+		production = #{record.production,jdbcType=VARCHAR}
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByPrimaryKeySelective" parameterType="com.danhuang.crop.Status">
+		update status
+		<set>
+			<if test="temperature != null">
+				temperature = #{temperature,jdbcType=TINYINT},
+			</if>
+			<if test="moisture != null">
+				moisture = #{moisture,jdbcType=DOUBLE},
+			</if>
+			<if test="production != null">
+				production = #{production,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where name = #{name,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.danhuang.crop.Status">
+		update status
+		set temperature = #{temperature,jdbcType=TINYINT},
+		moisture = #{moisture,jdbcType=DOUBLE},
+		production = #{production,jdbcType=VARCHAR}
+		where name = #{name,jdbcType=VARCHAR}
+	</update>
+</mapper>

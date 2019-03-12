@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.danhuang.mapper.StatusMapperCustom">
+	<sql id="query_status_list">
+		<if test="statusCustom != null">
+			<if test="statusCustom.name != null and statusCustom.name != ''">
+				status.name like '%${statusCustom.name}%'
+			</if>
+		</if>
+	</sql>
+	<select id="findStatusList" parameterType="com.danhuang.crop.StatusQueryVo" resultType="com.danhuang.crop.StatusCustom">
+		select * from Status
+		<where>
+			<include refid="query_status_list"></include>
+		</where>
+	</select>
+	<select id="findStatusByName" parameterType="java.lang.String" resultType="com.danhuang.crop.StatusCustom">
+		select * from Status
+		<where>
+			<include refid="query_status_list"></include>
+		</where>
+	</select>
+	<select id="updateStatus" parameterType="com.danhuang.crop.StatusCustom">
+		update status
+		<set>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="temperature != null">
+				temperature = #{temperature,jdbcType=TINYINT},
+			</if>
+			<if test="moisture != null">
+				moisture = #{moisture,jdbcType=DOUBLE},
+			</if>
+			<if test="production != null">
+				production = #{production,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where status.name like '%${name}%'
+	</select>
+</mapper>
