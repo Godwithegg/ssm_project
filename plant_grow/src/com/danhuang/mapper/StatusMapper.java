@@ -6,25 +6,25 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface StatusMapper {
-	int countByExample(StatusExample example);
+    int countByExample(StatusExample example);
 
-	int deleteByExample(StatusExample example);
+    int deleteByExample(StatusExample example);
 
-	int deleteByPrimaryKey(String name);
+    int deleteByPrimaryKey(Integer id);
 
-	int insert(Status record);
+    int insert(Status record);
 
-	int insertSelective(Status record);
+    int insertSelective(Status record);
 
-	List<Status> selectByExample(StatusExample example);
+    List<Status> selectByExample(StatusExample example);
 
-	Status selectByPrimaryKey(String name);
+    Status selectByPrimaryKey(Integer id);
 
-	int updateByExampleSelective(@Param("record") Status record, @Param("example") StatusExample example);
+    int updateByExampleSelective(@Param("record") Status record, @Param("example") StatusExample example);
 
-	int updateByExample(@Param("record") Status record, @Param("example") StatusExample example);
+    int updateByExample(@Param("record") Status record, @Param("example") StatusExample example);
 
-	int updateByPrimaryKeySelective(Status record);
+    int updateByPrimaryKeySelective(Status record);
 
-	int updateByPrimaryKey(Status record);
+    int updateByPrimaryKey(Status record);
 }

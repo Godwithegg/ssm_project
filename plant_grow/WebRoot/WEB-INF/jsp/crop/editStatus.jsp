@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-<title>查询作物列表</title>
+<title>查询商品列表</title>
 </head>
 <style>
 	body{background-color:#f8f8f8;}
@@ -32,10 +32,10 @@
     </nav>
     <br/><br/><br/>
 
-<form action="${pageContext.request.contextPath }/crop/editStatusSubmit.action" method="post" enctype="multipart/form-data">
+<form action="${pageContext.request.contextPath }/crop/editStatusSubmit.action" method="post">
 
-    <input type="hidden" name="name" value="${statusCustom.name}">
-    <div class="text-primary col-sm-4">修改作物信息：</div>
+    <input type="hidden" name="id" value="${item.id}">
+    <div class="text-primary col-sm-4">修改商品信息：</div>
     <div class="col-sm-12">
         <table class="table">
             <thead>
@@ -43,25 +43,23 @@
             </thead>
         <tbody>
        		<tr>
-                <td>作物名称</td>
+                <td>商品名称</td>
                 <td>
-                	<input type="text" name="name" value="${statusCustom.name }">
+                	<input type="text" name="name" value="${item.name }">
                 </td>
               </tr>
             <tr>
-                <td>温度</td>
-                <td><input type="text" name="temperature" value="${statusCustom.temperature }"></td>
+                <td>商品价格</td>
+                <td><input type="text" name="price" value="${item.temperature }"></td>
             </tr>
             <tr>
-                <td>湿度</td>
-                <td><input type="text" name="moisture"  value="${statusCustom.moisture}"></td>
+                <td>生产日期</td>
+                <td><input type="text" name="createtime"  value="${item.moisture}"></td>
             </tr>
+ 
             <tr>
-        
-            </tr>
-            <tr>
-                <td>产量</td>
-                <td><input type="text" name="production" value="${statusCustom.production }"></td>
+                <td>商品描述</td>
+                <td><input type="text" name="detail" value="${item.production }"></td>
             </tr>
             <tr>
                 <td colspan="2" align="center"><input type="submit" value="提交"/>

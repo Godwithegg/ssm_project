@@ -28,7 +28,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">    <!--navbar-fixed-bottom决定了顶部底部，固定的-->
         <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
-                <input name="statusCustom.name" class="form-control" placeholder="搜索">
+               <!-- <input name="statusCustom.name" class="form-control" placeholder="搜索"> -->
             </div>
             <input type="button" class="btn" value="查询" onclick="queryItems()"/>
         </form>
@@ -43,14 +43,15 @@
     </nav>
 
     <form name="itemsForm" action="${pageContext.request.contextPath }/crop/queryStatus.action" method="post">
-        <div class="panel panel-default">
+        <div class="panel panel-default"><br/><br/><br/>
             <div class="panel-heading">
-                商品查询
+                商品查询<input name="statusCustom.name" />
             </div>
             <br>
             <table class="table">
                 <thead>
                     <tr class="active">
+                    	<th>选择</th>
                         <th>作物名称</th>
                         <th>温度</th>
                         <th>湿度</th>
@@ -61,11 +62,12 @@
                 <tbody>
                     <c:forEach items="${statusList }" var="item">
                         <tr class="success">
+                    	<td><input type="checkbox" name="items_id" value="${item.id}"></td>
                                 <td>${item.name }</td>
                                 <td>${item.temperature }</td>
                                 <td>${item.moisture }</td>
                                 <td>${item.production }</td>
-                                <td><a href="${pageContext.request.contextPath }/crop/editStatus.action?id=${item.name}">修改</a></td>
+                                <td><a href="${pageContext.request.contextPath }/crop/editStatus.action?id=${item.id}">修改</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>

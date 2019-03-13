@@ -1,6 +1,8 @@
 package com.danhuang.crop;
 
 public class Status {
+    private Integer id;
+
     private String name;
 
     private Byte temperature;
@@ -8,6 +10,14 @@ public class Status {
     private Double moisture;
 
     private String production;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
