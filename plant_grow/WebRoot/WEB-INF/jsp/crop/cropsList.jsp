@@ -26,6 +26,11 @@
         	document.itemsForm.action="${pageContext.request.contextPath}/crop/deleteStatus.action";
         	document.itemsForm.submit();
         }
+        function playItems()
+        {
+        	document.itemsForm.action="${pageContext.request.contextPath}/echarts/test.action";
+        	document.itemsForm.submit();
+        }
     
     </script>
 </head>
@@ -51,7 +56,7 @@
             <div class="panel-heading">
                 商品查询<input name="statusCustom.name" />
             <input type="button" class="btn-success" value="查询" onclick="queryItems()"/>
-            <a href="${pageContext.request.contextPath}/echarts/test.action">数据展示</a>
+            <input type="button" class="btn-info" value="数据展示" onclick="playItems()">
             </div>
             <br>
             <table class="table">

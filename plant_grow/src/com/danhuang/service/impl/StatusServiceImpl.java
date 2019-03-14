@@ -5,9 +5,12 @@ import java.util.List;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.danhuang.crop.ClientCustom;
+import com.danhuang.crop.ClientQueryVo;
 import com.danhuang.crop.Status;
 import com.danhuang.crop.StatusCustom;
 import com.danhuang.crop.StatusQueryVo;
+import com.danhuang.mapper.ClientMapperCustom;
 import com.danhuang.mapper.StatusMapper;
 import com.danhuang.mapper.StatusMapperCustom;
 import com.danhuang.service.StatusService;
@@ -18,6 +21,8 @@ public class StatusServiceImpl implements StatusService{
 	private StatusMapper statusMapper;
 	@Autowired
 	private StatusMapperCustom statusMapperCustom;
+	@Autowired
+	private ClientMapperCustom clientMapperCustom;
 	@Override
 	public List<StatusCustom> findStatusList(StatusQueryVo statusQueryVo) throws Exception {
 		return statusMapperCustom.findStatusList(statusQueryVo);
@@ -45,6 +50,14 @@ public class StatusServiceImpl implements StatusService{
 	public void deleteStatus(Integer id) throws Exception {
 		statusMapper.deleteByPrimaryKey(id);
 		
+	}
+	@Override
+	public String findPasswordByUsername(String username) throws Exception {		
+		return clientMapperCustom.findPasswordByName(username);
+	}
+	@Override
+	public void insertNewUser(ClientCustom clientCustom) throws Exception {
+		clientMapperCustom.insertNewUser(clientCustom);
 	}
 	
 	
