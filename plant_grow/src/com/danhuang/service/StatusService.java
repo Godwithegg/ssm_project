@@ -13,4 +13,6 @@ public interface StatusService {
 	public StatusCustom findStatusById(Integer id) throws Exception;
 	//更新作物的修改情况
 	public void updateStatus(Integer id,StatusCustom statusCustom) throws Exception;
+	//删除作物的信息
+	public void deleteStatus(Integer id) throws Exception;
 }

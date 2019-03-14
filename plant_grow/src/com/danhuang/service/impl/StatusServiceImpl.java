@@ -41,6 +41,11 @@ public class StatusServiceImpl implements StatusService{
 		statusMapper.updateByPrimaryKeySelective(statusCustom);
 		
 	}
+	@Override
+	public void deleteStatus(Integer id) throws Exception {
+		statusMapper.deleteByPrimaryKey(id);
+		
+	}
 	
 	
 }

@@ -50,16 +50,16 @@
               </tr>
             <tr>
                 <td>商品价格</td>
-                <td><input type="text" name="price" value="${item.temperature }"></td>
+                <td><input type="text" name="temperature" value="${item.temperature }"></td>
             </tr>
             <tr>
                 <td>生产日期</td>
-                <td><input type="text" name="createtime"  value="${item.moisture}"></td>
+                <td><input type="text" name="moisture"  value="${item.moisture}"></td>
             </tr>
  
             <tr>
                 <td>商品描述</td>
-                <td><input type="text" name="detail" value="${item.production }"></td>
+                <td><input type="text" name="production" value="${item.production }"></td>
             </tr>
             <tr>
                 <td colspan="2" align="center"><input type="submit" value="提交"/>

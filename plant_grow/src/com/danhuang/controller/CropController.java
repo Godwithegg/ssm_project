@@ -1,5 +1,6 @@
 package com.danhuang.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.danhuang.crop.Status;
@@ -49,4 +51,13 @@ public class CropController {
 		statusService.updateStatus(id,statusCustom);
 		return "redirect:queryStatus.action";
 	}
+	
+	@RequestMapping("/deleteStatus")
+	public String deleteStatus(Integer id) throws Exception
+	{
+		statusService.deleteStatus(id);
+		return "redirect:queryStatus.action";
+	}
+	
+
 }

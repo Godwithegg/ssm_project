@@ -18,8 +18,13 @@
         }
         function editItems()
         {
-            document.itemsForm.action="${pageContext.request.contextPath }/crop/editStatus.action"
+            document.itemsForm.action="${pageContext.request.contextPath }/crop/editStatus.action";
             document.itemsForm.submit();
+        }
+        function deleteItems()
+        {
+        	document.itemsForm.action="${pageContext.request.contextPath}/crop/deleteStatus.action";
+        	document.itemsForm.submit();
         }
     
     </script>
@@ -30,7 +35,6 @@
             <div class="form-group">
                <!-- <input name="statusCustom.name" class="form-control" placeholder="搜索"> -->
             </div>
-            <input type="button" class="btn" value="查询" onclick="queryItems()"/>
         </form>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#">当前用户：${username }</a></li>
@@ -43,9 +47,11 @@
     </nav>
 
     <form name="itemsForm" action="${pageContext.request.contextPath }/crop/queryStatus.action" method="post">
-        <div class="panel panel-default"><br/><br/><br/>
+        <div class="panel panel-default"><br/><br/>
             <div class="panel-heading">
                 商品查询<input name="statusCustom.name" />
+            <input type="button" class="btn-success" value="查询" onclick="queryItems()"/>
+            <a href="${pageContext.request.contextPath}/echarts/test.action">数据展示</a>
             </div>
             <br>
             <table class="table">
@@ -56,18 +62,21 @@
                         <th>温度</th>
                         <th>湿度</th>
                         <th>产量</th>
-                        <th>操作</th>
+                        <th>修改</th>
+                        <th>删除</th>
                     </tr>
                 </thead>
                 <tbody>
                     <c:forEach items="${statusList }" var="item">
                         <tr class="success">
-                    	<td><input type="checkbox" name="items_id" value="${item.id}"></td>
+                    	<td><input type="checkbox" name="id" value="${item.id}"></td>
                                 <td>${item.name }</td>
                                 <td>${item.temperature }</td>
                                 <td>${item.moisture }</td>
                                 <td>${item.production }</td>
                                 <td><a href="${pageContext.request.contextPath }/crop/editStatus.action?id=${item.id}">修改</a></td>
+                       			<td><input type="button" class="" value="删除" onclick="deleteItems()"></td>
+                        
                         </tr>
                     </c:forEach>
                 </tbody>
