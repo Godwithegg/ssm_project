@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+
 <html lang="zh-cmn-Hans">
 <head>
+
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
@@ -12,15 +14,16 @@
 }
 
 .myheader {
-	background: url('header.png');
 	background-size: myheader;
 	height: 25%;
 }
 
 .mybody {
+	background: url('img/header.png');
 	background-color: #f8f8f8;
 }
 </style>
+
 <!-- Bootstrap CSS -->
 
 <link rel="stylesheet"

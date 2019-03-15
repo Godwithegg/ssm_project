@@ -12,8 +12,11 @@
 <base href="<%=basePath%>">
 <script type="text/javascript" src="static/echarts/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="static/echarts/echarts.js"></script>
+
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
 <body>
+	
 	<nav role="navigation">
 	<!-- 显示Echarts图表 -->
 	<div style="height: 410px; min-height: 100px; margin: 0 auto;" id="main"></div>
@@ -21,8 +24,6 @@
 
 	<a href="${pageContext.request.contextPath }/crop/queryStatus.action" class="btn btn-info">返回</a>
 	</nav>
-
-
 
 </body>
 
@@ -140,7 +141,7 @@
 		async : true, //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
 		url : "echarts/record.action", //请求发送到ShowInfoIndexServlet处
 		data : {
-			name : "水稻"
+			name : "$(statusCustom)"
 		}, //请求内包含一个key为name，value为A0001的参数；服务器接收到客户端请求时通过request.getParameter方法获取该参数值
 		dataType : "json", //返回数据形式为json
 		success : function(result) {

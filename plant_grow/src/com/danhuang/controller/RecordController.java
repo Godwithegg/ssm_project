@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping(value = "/echarts")
 public class RecordController {
@@ -17,9 +19,10 @@ public class RecordController {
 	private StatusService statusService;
 
 	@RequestMapping(value = "/record")
-	public @ResponseBody Object getRecord(StatusCustom statusCustom) throws Exception {
-		System.out.println(statusCustom);
-		List<StatusCustom> list = statusService.findStatusList(null);
+	public @ResponseBody Object getRecord(StatusQueryVo statusQueryVo) throws Exception {
+		//System.out.println(statusCustom);
+		
+		List<StatusCustom> list = statusService.findStatusList(statusQueryVo);
 		return list;
 	}
 
