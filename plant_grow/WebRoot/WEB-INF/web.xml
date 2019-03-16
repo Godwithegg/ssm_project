@@ -31,7 +31,7 @@
   
    <servlet-mapping>    
      <servlet-name>default</servlet-name>    
-     <url-pattern>/img/*</url-pattern>    
+     <url-pattern>/img/*</url-pattern>
  </servlet-mapping> 
   
   <!-- The front controller of this Spring Web application, responsible for handling all application requests -->

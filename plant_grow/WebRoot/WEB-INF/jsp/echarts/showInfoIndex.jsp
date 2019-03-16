@@ -4,12 +4,15 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
+<base href="<%=basePath%>">
 <html>
 <head>
+<link rel="shortcut icon" href="img/fac.ico"/>
+<link rel="bookmark" href="img/fac.ico"/>
 <title>- 观测数据 -</title>
 </head>
 
-<base href="<%=basePath%>">
+
 <script type="text/javascript" src="static/echarts/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="static/echarts/echarts.js"></script>
 

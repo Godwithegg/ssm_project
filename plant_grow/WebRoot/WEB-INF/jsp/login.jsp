@@ -1,9 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<base href="<%=basePath%>">
 <html lang="zh-cmn-Hans">
 <head>
-
+<link rel="shortcut icon" href="img/fac.ico"/>
+<link rel="bookmark" href="img/fac.ico"/>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
@@ -31,7 +37,7 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 	
-<title>用户登录和注册切换</title>
+<title>登录-注册用户</title>
 </head>
 
 <body class="mybody">

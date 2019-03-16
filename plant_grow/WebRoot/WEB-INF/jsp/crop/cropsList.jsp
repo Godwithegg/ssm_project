@@ -2,6 +2,12 @@
 	isELIgnored="false" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<base href="<%=basePath%>">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +16,9 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet"
 	href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-<title>Document</title>
+	<link rel="shortcut icon" href="img/fac.ico"/>
+<link rel="bookmark" href="img/fac.ico"/>
+<title>数据页面</title>
 <script type="text/javascript">
 	function queryItems() {
 		document.itemsForm.action = "${pageContext.request.contextPath }/crop/queryStatus.action";
