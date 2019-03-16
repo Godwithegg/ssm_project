@@ -26,7 +26,7 @@ public class CropController {
 	@RequestMapping("/queryStatus")
 	public ModelAndView queryStatus(StatusQueryVo statusQueryVo) throws Exception {
 		List<StatusCustom> statusList = statusService.findStatusList(statusQueryVo);
-
+		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("statusList", statusList);
 		modelAndView.setViewName("crop/cropsList");
@@ -54,5 +54,5 @@ public class CropController {
 		statusService.deleteStatus(id); 
 		return "redirect:queryStatus.action";
 	}
-
+	
 }

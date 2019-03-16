@@ -64,7 +64,7 @@
 											<td>
 												<div class="input-group row">
 													<span class="input-group-addon col-md-4">用户名:</span> 
-													<input class="form-control col-md-8" name="username" type="text" maxlength="15" />
+													<input class="form-control col-md-8" name="username" type="text" maxlength="15" required/>
 												</div>
 											</td>
 										</tr>
@@ -101,7 +101,7 @@
 											<td>
 												<div class="input-group row">
 													<span class="input-group-addon col-md-4">用户名:</span> 
-													<input class="form-control col-md-8" name="username" type="text" maxlength="15" />
+													<input class="form-control col-md-8" name="username" type="text" maxlength="15" required/>
 												</div>
 											</td>
 										</tr>
