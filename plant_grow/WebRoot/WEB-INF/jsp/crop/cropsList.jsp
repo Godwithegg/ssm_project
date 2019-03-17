@@ -28,6 +28,10 @@
 		document.itemsForm.action = "${pageContext.request.contextPath }/crop/editStatus.action";
 		document.itemsForm.submit();
 	}
+	function insertItems() {
+		document.itemsForm.action  = "${pageContext.request.contextPath }/crop/insertStatus.action";
+		document.itemsForm.submit();
+	}
 	function deleteItems() {
 		document.itemsForm.action = "${pageContext.request.contextPath}/crop/deleteStatus.action";
 		document.itemsForm.submit();
@@ -88,6 +92,8 @@ body {
 					查找农产品<input name="statusCustom.name" /> <input type="button"
 						class="btn-success" value="查询" onclick="queryItems()" /> <input
 						type="button" class="btn-info" value="数据展示" onclick="playItems()">
+						<input
+						type="button" class="btn-info" value="新增作物" onclick="insertItems()">
 				</div>
 				<table class="table">
 					<thead>

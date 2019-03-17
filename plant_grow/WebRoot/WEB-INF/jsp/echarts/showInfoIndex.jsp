@@ -17,15 +17,19 @@
 <script type="text/javascript" src="static/echarts/echarts.js"></script>
 
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-
-<body>
-	
+<style type="text/css">
+	.mybody{
+		background:url('img/echartgrund.png');
+	}
+</style>
+<body class="mybody">
+	<br><br>
 	<nav role="navigation">
 	<!-- 显示Echarts图表 -->
 	<div style="height: 410px; min-height: 100px; margin: 0 auto;" id="main"></div>
 	
 
-	<a href="${pageContext.request.contextPath }/crop/queryStatus.action" class="btn btn-info">返回</a>
+	<a href="${pageContext.request.contextPath }/crop/queryStatus.action" class="btn btn-info" style="text:center">返回</a>
 	</nav>
 
 </body>
@@ -33,7 +37,7 @@
 <script type="text/javascript">
 	// 基于准备好的dom，初始化echarts实例
 	var myChart = echarts.init(document.getElementById('main'));
-
+	
 	// 指定图表的配置项和数据
 	var option = {
 		title : { //图表标题
@@ -131,7 +135,6 @@
 			data : []
 		}, ]
 	};
-
 	myChart.showLoading(); //数据加载完之前先显示一段简单的loading动画
 
 	var tems = []; //温度数组（存放服务器返回的所有温度值）

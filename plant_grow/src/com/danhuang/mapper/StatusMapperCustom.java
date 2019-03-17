@@ -7,7 +7,8 @@ import com.danhuang.crop.StatusCustom;
 import com.danhuang.crop.StatusQueryVo;
 
 public interface StatusMapperCustom {
-	//查找商品列表
+	//查找作物列表
 	public List<StatusCustom> findStatusList(StatusQueryVo statusQueryVo) throws Exception;
-
+	//新增作物数据
+	public void insertStatus(StatusCustom statusCustom) throws Exception;
 }

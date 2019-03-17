@@ -48,7 +48,19 @@ public class CropController {
 		statusService.updateStatus(id, statusCustom);
 		return "redirect:queryStatus.action";
 	}
-
+	
+	@RequestMapping("/insertStatus")
+	public String insertStatus() throws Exception{
+		return "crop/insertStatus";
+	}
+	
+	@RequestMapping("/insertStatusSubmit")
+	public String insertStatusSubmit(@ModelAttribute("item") StatusCustom statusCustom) throws Exception{
+		if(!statusService.isNull(statusCustom))
+			statusService.insertStatus(statusCustom);
+		return "redirect:queryStatus.action";
+	}
+	
 	@RequestMapping("/deleteStatus")
 	public String deleteStatus(Integer id) throws Exception {
 		statusService.deleteStatus(id); 

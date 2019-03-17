@@ -20,4 +20,8 @@ public interface StatusService {
 	public String findPasswordByUsername(String username) throws Exception;
 	//注册用户
 	public void insertNewUser(ClientCustom clientCustom) throws Exception;
+	//插入新的作物数据
+	public void insertStatus(StatusCustom statusCustom) throws Exception;
+	//增加作物是否为空
+	public boolean isNull(StatusCustom statusCustom) throws Exception;
 }

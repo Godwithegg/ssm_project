@@ -59,6 +59,18 @@ public class StatusServiceImpl implements StatusService{
 	public void insertNewUser(ClientCustom clientCustom) throws Exception {
 		clientMapperCustom.insertNewUser(clientCustom);
 	}
+	@Override
+	public void insertStatus(StatusCustom statusCustom) throws Exception {
+		statusMapperCustom.insertStatus(statusCustom);
+		
+	}
+	@Override
+	public boolean isNull(StatusCustom statusCustom) throws Exception {
+		if(statusCustom.getName() == null || statusCustom.getTemperature() == 0 || statusCustom.getMoisture()==0 ||
+				statusCustom.getProduction() == null)
+			return true;
+		return false;
+	}
 	
 	
 }

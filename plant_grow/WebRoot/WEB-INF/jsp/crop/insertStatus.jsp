@@ -40,10 +40,10 @@
     </nav>
     <br/><br/><br/>
 
-<form action="${pageContext.request.contextPath }/crop/editStatusSubmit.action" method="post">
+<form action="${pageContext.request.contextPath }/crop/insertStatusSubmit.action" method="post">
 
     <input type="hidden" name="id" value="${item.id}">
-    <div class="text-primary col-sm-4">修改作物信息：</div>
+    <div class="text-primary col-sm-4">新增作物信息：</div>
     <div class="col-sm-12">
         <table class="table">
             <thead>

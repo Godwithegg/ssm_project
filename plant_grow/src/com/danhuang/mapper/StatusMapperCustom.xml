@@ -15,4 +15,9 @@
 			<include refid="query_status_list"></include>
 		</where>
 	</select>
+	
+	<insert id="insertStatus" parameterType="com.danhuang.crop.StatusCustom">
+		insert into status(id,name,temperature,moisture,production) 
+		values(#{id},#{name},#{temperature},#{moisture},#{production})
+	</insert>
 </mapper>
