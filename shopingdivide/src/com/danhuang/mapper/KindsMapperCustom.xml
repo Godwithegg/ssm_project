@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.danhuang.mapper.KindsMapperCustom" >
+  <sql id="query_status_list">
+    	<if test="kindsCustom != null">
+    		<if test="kindsCustom.name != null and kindsCustom.name !=''">
+    		    kinds.name like '%${KindsCustom.name}%'
+    		</if>
+    	</if>
+    </sql>
+
+	<select id="findKindsList" parameterType="com.danhuang.crop.StatusQueryVo" resultType="com.danhuang.crop.KindsCustom">
+		select * from kinds
+		<where>
+			<include refid="query_status_list"></include>
+		</where>
+	</select>
+</mapper>
